@@ -16,7 +16,7 @@ export const LanguageToggle = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={toggleLanguage}
-            className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-white/10 transition-all z-50 group"
+            className="flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-xl backdrop-blur-md hover:bg-white/10 transition-all group"
         >
             <Globe className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform" />
             <span className="text-[10px] font-black uppercase tracking-widest text-white/70 group-hover:text-white">
