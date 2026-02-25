@@ -23,15 +23,9 @@ export default function LandingPage() {
     const scrollTo = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            const offset = 80; // Offset for navbar height/padding
-            const bodyRect = document.body.getBoundingClientRect().top;
-            const elementRect = el.getBoundingClientRect().top;
-            const elementPosition = elementRect - bodyRect;
-            const offsetPosition = elementPosition - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+            el.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
         // Small delay to let the scroll start before menu animation might interfere
@@ -72,7 +66,7 @@ export default function LandingPage() {
                         </div>
 
                         {/* Desktop: Right side */}
-                        <div className="hidden md:flex items-center gap-3">
+                        <div className="hidden md:flex items-center gap-3 md:ml-8">
                             <LanguageToggle />
                             <NextLink
                                 href="/dashboard"
@@ -145,7 +139,7 @@ export default function LandingPage() {
                 </motion.div>
             </nav>
 
-            <div id="home" />
+            <div id="home" className="scroll-mt-24" />
 
             {/* --- Hero Section --- */}
             <section className="relative min-h-screen flex flex-col items-center justify-center p-6 overflow-hidden">
@@ -204,7 +198,7 @@ export default function LandingPage() {
             </section>
 
             {/* --- The Problem Section --- */}
-            <section id="problem" className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+            <section id="problem" className="py-24 px-6 md:px-12 max-w-7xl mx-auto scroll-mt-24">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -339,7 +333,7 @@ export default function LandingPage() {
             </section>
 
             {/* --- Key Features Section --- */}
-            <section id="features" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
+            <section id="features" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 scroll-mt-24">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-4">{t('features.title_part1')}<span className="text-primary">{t('features.title_part2')}</span></h2>
                     <p className="text-white/40 font-bold uppercase tracking-widest text-xs">{t('features.subtitle')}</p>
@@ -368,7 +362,7 @@ export default function LandingPage() {
             </section>
 
             {/* --- Technical Anatomy Section --- */}
-            <section id="anatomy" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
+            <section id="anatomy" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 scroll-mt-24">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
