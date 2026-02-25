@@ -43,7 +43,7 @@ export default function LandingPage() {
     return (
         <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
             {/* --- Navbar --- */}
-            <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
+            <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-6xl">
                 <motion.div
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -52,7 +52,7 @@ export default function LandingPage() {
                     {/* Glow Line */}
                     <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50 rounded-t-2xl" />
 
-                    <div className="flex items-center justify-between px-5 py-3.5">
+                    <div className="flex items-center justify-between px-10 py-3.5">
                         {/* Logo */}
                         <div className="flex items-center gap-3 shrink-0">
                             <div
