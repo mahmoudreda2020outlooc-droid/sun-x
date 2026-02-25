@@ -26,7 +26,7 @@ export default function LandingPage() {
             </div>
 
             {/* --- Sticky Navbar --- */}
-            <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
+            <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
