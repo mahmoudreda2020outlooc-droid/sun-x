@@ -498,7 +498,7 @@ export default function LandingPage() {
 
                         {/* Bento Grid Layout - Clean, Large, and Fills Space */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-                            {Array.from({ length: 30 }).map((_, i) => (
+                            {Array.from({ length: 6 }).map((_, i) => (
                                 <motion.div
                                     key={i}
                                     initial={{ opacity: 0, y: 20 }}
