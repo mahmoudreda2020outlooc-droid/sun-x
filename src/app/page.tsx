@@ -61,11 +61,11 @@ export default function LandingPage() {
 
                         {/* Desktop Links */}
                         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-                            <a href="#home" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</a>
-                            <a href="#problem" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</a>
-                            <a href="#features" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</a>
-                            <a href="#anatomy" className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</a>
-                            <a href="#about" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</a>
+                            <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</a>
+                            <a href="#problem" onClick={(e) => { e.preventDefault(); scrollTo('problem'); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</a>
+                            <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</a>
+                            <a href="#anatomy" onClick={(e) => { e.preventDefault(); scrollTo('anatomy'); }} className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</a>
+                            <a href="#about" onClick={(e) => { e.preventDefault(); scrollTo('about'); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</a>
                         </div>
 
                         {/* Desktop: Right side */}
@@ -109,7 +109,15 @@ export default function LandingPage() {
                                         <a
                                             key={item.label}
                                             href={item.href}
-                                            onClick={() => setMobileMenuOpen(false)}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                if (item.href === '#home') {
+                                                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                                                    setMobileMenuOpen(false);
+                                                } else {
+                                                    scrollTo(item.href.replace('#', ''));
+                                                }
+                                            }}
                                             className="block w-full text-left py-3 px-3 rounded-xl text-[11px] font-black uppercase tracking-widest text-white/50 hover:text-primary hover:bg-white/5 transition-all"
                                         >
                                             {item.label}
