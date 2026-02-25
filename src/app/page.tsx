@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
     Cpu, Zap, ShieldCheck, Activity, ArrowRight,
     AlertTriangle, CheckCircle2, LayoutDashboard, Globe, Droplets,
-    X, ZoomIn, Users
+    X, ZoomIn, Users, Menu
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/components/providers/LanguageContext';
@@ -17,73 +17,104 @@ import { CreatorCredit } from '@/components/dashboard/CreatorCredit';
 export default function LandingPage() {
     const { t, isRTL } = useLanguage();
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
         <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
-            {/* Language Toggle Fixed Position */}
-            <div className="fixed top-6 right-6 z-[101] md:right-12">
+            {/* Language Toggle - only visible on mobile (hidden on md+ where it's in the navbar) */}
+            <div className="fixed top-5 right-4 z-[101] md:hidden">
                 <LanguageToggle />
             </div>
 
-            {/* --- Sticky Navbar --- */}
+            {/* --- Navbar --- */}
             <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    className="glass-card flex items-center justify-between px-6 py-4 border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden relative group"
+                    className="glass-card border-white/10 bg-black/50 backdrop-blur-xl rounded-2xl shadow-2xl overflow-visible relative"
                 >
-                    {/* Animated Glow Line */}
-                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50" />
+                    {/* Glow Line */}
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50 rounded-t-2xl" />
 
-                    <div className="flex items-center gap-3">
-                        <div
-                            className="w-8 h-8 flex items-center justify-center cursor-pointer active:scale-95 transition-transform"
-                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                        >
-                            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                    <div className="flex items-center justify-between px-5 py-3.5">
+                        {/* Logo */}
+                        <div className="flex items-center gap-3 shrink-0">
+                            <div
+                                className="w-8 h-8 flex items-center justify-center cursor-pointer active:scale-95 transition-transform"
+                                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            >
+                                <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                            </div>
+                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/80">Sun-X</span>
                         </div>
-                        <span className="hidden sm:block text-[10px] font-black uppercase tracking-[0.2em] text-white/80">Sun-X</span>
+
+                        {/* Desktop Links */}
+                        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</button>
+                            <button onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</button>
+                            <button onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</button>
+                            <button onClick={() => document.getElementById('anatomy')?.scrollIntoView({ behavior: 'smooth' })} className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</button>
+                            <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</button>
+                        </div>
+
+                        {/* Desktop: Right side */}
+                        <div className="hidden md:flex items-center gap-3">
+                            <LanguageToggle />
+                            <NextLink
+                                href="/dashboard"
+                                className="flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-lg text-[9px] font-black uppercase tracking-widest text-primary transition-all active:scale-95"
+                            >
+                                <LayoutDashboard className="w-3 h-3" />
+                                {t('nav.dashboard')}
+                            </NextLink>
+                        </div>
+
+                        {/* Mobile: Hamburger */}
+                        <button
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                            className="md:hidden p-2 rounded-xl bg-white/5 border border-white/10 text-white/60 hover:text-primary transition-colors active:scale-95 ml-2"
+                        >
+                            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+                        </button>
                     </div>
 
-                    <div className="flex items-center gap-4 sm:gap-8">
-                        <button
-                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors"
-                        >
-                            {t('nav.home')}
-                        </button>
-                        <button
-                            onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
-                        >
-                            {t('nav.problem_solution')}
-                        </button>
-                        <button
-                            onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="hidden md:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
-                        >
-                            {t('nav.features')}
-                        </button>
-                        <button
-                            onClick={() => document.getElementById('anatomy')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
-                        >
-                            {t('nav.technical')}
-                        </button>
-                        <button
-                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
-                        >
-                            {t('nav.about')}
-                        </button>
-                        <NextLink
-                            href="/dashboard"
-                            className="hidden md:flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-lg text-[9px] font-black uppercase tracking-widest text-primary transition-all active:scale-95"
-                        >
-                            <LayoutDashboard className="w-3 h-3" />
-                            {t('nav.dashboard')}
-                        </NextLink>
-                    </div>
+                    {/* Mobile Menu Dropdown */}
+                    <AnimatePresence>
+                        {mobileMenuOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="md:hidden overflow-hidden border-t border-white/5"
+                            >
+                                <div className="flex flex-col px-5 pt-3 pb-5 gap-1">
+                                    {[
+                                        { label: t('nav.home'), onClick: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                                        { label: t('nav.problem_solution'), onClick: () => { document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                                        { label: t('nav.features'), onClick: () => { document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                                        { label: t('nav.technical'), onClick: () => { document.getElementById('anatomy')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                                        { label: t('nav.about'), onClick: () => { document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                                    ].map((item) => (
+                                        <button
+                                            key={item.label}
+                                            onClick={item.onClick}
+                                            className="w-full text-left py-3 px-3 rounded-xl text-[11px] font-black uppercase tracking-widest text-white/50 hover:text-primary hover:bg-white/5 transition-all"
+                                        >
+                                            {item.label}
+                                        </button>
+                                    ))}
+                                    <NextLink
+                                        href="/dashboard"
+                                        className="mt-2 flex items-center justify-center gap-2 px-4 py-3 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary transition-all"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        <LayoutDashboard className="w-4 h-4" />
+                                        {t('nav.dashboard')}
+                                    </NextLink>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </motion.div>
             </nav>
 
