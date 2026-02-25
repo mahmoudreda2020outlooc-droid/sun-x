@@ -20,10 +20,12 @@ import { cn } from '@/lib/utils';
 import { useLanguage } from '@/components/providers/LanguageContext';
 import { CreatorCredit } from '@/components/dashboard/CreatorCredit';
 
+import { verifyDashboardPassword } from '@/app/actions/auth';
+
 export default function Dashboard() {
     const { t, isRTL } = useLanguage();
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
-    // --- State Management ---
+    // ... rest of state ...
     const [battery, setBattery] = useState(85);
     const [speed, setSpeed] = useState(0.0);
     const [status, setStatus] = useState<'IDLE' | 'CLEANING' | 'ERROR' | 'AUTO'>('IDLE');
@@ -104,16 +106,25 @@ export default function Dashboard() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [passcode, setPasscode] = useState('');
     const [authError, setAuthError] = useState(false);
+    const [isVerifying, setIsVerifying] = useState(false);
 
-    const handleAuth = (e?: React.FormEvent) => {
+    const handleAuth = async (e?: React.FormEvent) => {
         if (e) e.preventDefault();
-        if (passcode === '8208') {
-            setIsAuthenticated(true);
-            setAuthError(false);
-        } else {
+        setIsVerifying(true);
+        setAuthError(false);
+
+        try {
+            const isValid = await verifyDashboardPassword(passcode);
+            if (isValid) {
+                setIsAuthenticated(true);
+            } else {
+                setAuthError(true);
+                setPasscode('');
+            }
+        } catch (error) {
             setAuthError(true);
-            setPasscode('');
-            // Shake effect or feedback could be added here
+        } finally {
+            setIsVerifying(false);
         }
     };
 
@@ -179,9 +190,13 @@ export default function Dashboard() {
 
                                 <button
                                     type="submit"
-                                    className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] text-[11px] py-5 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all active:scale-[0.98]"
+                                    disabled={isVerifying}
+                                    className={cn(
+                                        "w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] text-[11px] py-5 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed",
+                                        isVerifying && "animate-pulse"
+                                    )}
                                 >
-                                    {t('dashboard.auth.button')}
+                                    {isVerifying ? (isRTL ? 'جاري التحقق...' : 'Verifying...') : t('dashboard.auth.button')}
                                 </button>
                             </form>
 
