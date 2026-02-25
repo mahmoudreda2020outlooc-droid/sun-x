@@ -21,11 +21,6 @@ export default function LandingPage() {
 
     return (
         <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
-            {/* Language Toggle - only visible on mobile (hidden on md+ where it's in the navbar) */}
-            <div className="fixed top-5 right-4 z-[101] md:hidden">
-                <LanguageToggle />
-            </div>
-
             {/* --- Navbar --- */}
             <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
@@ -103,6 +98,10 @@ export default function LandingPage() {
                                             {item.label}
                                         </button>
                                     ))}
+                                    {/* Language Toggle inside mobile menu */}
+                                    <div className="py-2 px-3">
+                                        <LanguageToggle />
+                                    </div>
                                     <NextLink
                                         href="/dashboard"
                                         className="mt-2 flex items-center justify-center gap-2 px-4 py-3 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-xl text-[11px] font-black uppercase tracking-widest text-primary transition-all"
