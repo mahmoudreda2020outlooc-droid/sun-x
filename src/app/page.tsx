@@ -21,9 +21,61 @@ export default function LandingPage() {
     return (
         <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
             {/* Language Toggle Fixed Position */}
-            <div className="fixed top-6 right-6 z-[100] md:right-12">
+            <div className="fixed top-6 right-6 z-[101] md:right-12">
                 <LanguageToggle />
             </div>
+
+            {/* --- Sticky Navbar --- */}
+            <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
+                <motion.div
+                    initial={{ y: -100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    className="glass-card flex items-center justify-between px-6 py-4 border-white/10 bg-black/40 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden relative group"
+                >
+                    {/* Animated Glow Line */}
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50" />
+
+                    <div className="flex items-center gap-3">
+                        <div
+                            className="w-8 h-8 flex items-center justify-center cursor-pointer active:scale-95 transition-transform"
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                        >
+                            <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
+                        </div>
+                        <span className="hidden sm:block text-[10px] font-black uppercase tracking-[0.2em] text-white/80">Sun-X</span>
+                    </div>
+
+                    <div className="flex items-center gap-4 sm:gap-8">
+                        <button
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors"
+                        >
+                            {t('nav.home')}
+                        </button>
+                        <button
+                            onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
+                        >
+                            {t('nav.problem_solution')}
+                        </button>
+                        <button
+                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
+                        >
+                            {t('nav.about')}
+                        </button>
+                        <NextLink
+                            href="/dashboard"
+                            className="hidden md:flex items-center gap-2 px-4 py-2 bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-lg text-[9px] font-black uppercase tracking-widest text-primary transition-all active:scale-95"
+                        >
+                            <LayoutDashboard className="w-3 h-3" />
+                            {t('nav.dashboard')}
+                        </NextLink>
+                    </div>
+                </motion.div>
+            </nav>
+
+            <div id="home" />
 
             {/* --- Hero Section --- */}
             <section className="relative min-h-screen flex flex-col items-center justify-center p-6 overflow-hidden">

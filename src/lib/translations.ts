@@ -9,6 +9,12 @@ export const translations = {
             cta: "Enter Dashboard",
             discover: "Discover More"
         },
+        nav: {
+            home: "Home",
+            problem_solution: "Problems & Solutions",
+            about: "About Us",
+            dashboard: "Dashboard"
+        },
         problem: {
             title_part1: "The ",
             title_part2: "Problem",
@@ -126,6 +132,12 @@ export const translations = {
                 placeholder: "Enter Code",
                 error: "Invalid Security Code",
                 button: "Verify"
+            },
+            quick_nav: {
+                control: "Control Panel",
+                diagnostics: "Diagnostics",
+                analytics: "Analytics",
+                service: "Service"
             }
         },
         footer: {
@@ -150,6 +162,12 @@ export const translations = {
             description: "حل روبوتي ذكي مصمم لزيادة إنتاجية مزارع الطاقة الشمسية من خلال صيانة مؤتمتة عالية الدقة. مستقبل الطاقة المستدامة هنا.",
             cta: "دخول لوحة التحكم",
             discover: "اكتشف المزيد"
+        },
+        nav: {
+            home: "الرئيسية",
+            problem_solution: "المشاكل والحل",
+            about: "من نحن",
+            dashboard: "لوحة التحكم"
         },
         problem: {
             title_part1: "ال",
@@ -268,6 +286,12 @@ export const translations = {
                 placeholder: "أدخل الرمز",
                 error: "رمز غير صحيح",
                 button: "دخول"
+            },
+            quick_nav: {
+                control: "لوحة التحكم",
+                diagnostics: "التشخيص",
+                analytics: "الإحصائيات",
+                service: "الخدمة"
             }
         },
         footer: {
