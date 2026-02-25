@@ -432,7 +432,7 @@ export default function LandingPage() {
             </section>
 
             {/* --- About Us Section --- */}
-            <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
+            <section id="about" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5 scroll-mt-24">
                 <div className="grid lg:grid-cols-2 gap-20 items-start">
                     {/* The Story */}
                     <motion.div
