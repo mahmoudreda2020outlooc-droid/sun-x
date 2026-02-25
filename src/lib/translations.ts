@@ -12,6 +12,8 @@ export const translations = {
         nav: {
             home: "Home",
             problem_solution: "Problems & Solutions",
+            features: "Features",
+            technical: "Technical",
             about: "About Us",
             dashboard: "Dashboard"
         },
@@ -166,6 +168,8 @@ export const translations = {
         nav: {
             home: "الرئيسية",
             problem_solution: "المشاكل والحل",
+            features: "المميزات",
+            technical: "التصميم التقني",
             about: "من نحن",
             dashboard: "لوحة التحكم"
         },

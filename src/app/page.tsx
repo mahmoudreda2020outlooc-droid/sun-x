@@ -59,6 +59,18 @@ export default function LandingPage() {
                             {t('nav.problem_solution')}
                         </button>
                         <button
+                            onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="hidden md:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
+                        >
+                            {t('nav.features')}
+                        </button>
+                        <button
+                            onClick={() => document.getElementById('anatomy')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
+                        >
+                            {t('nav.technical')}
+                        </button>
+                        <button
                             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                             className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap"
                         >
@@ -269,7 +281,7 @@ export default function LandingPage() {
             </section>
 
             {/* --- Key Features Section --- */}
-            <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
+            <section id="features" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase mb-4">{t('features.title_part1')}<span className="text-primary">{t('features.title_part2')}</span></h2>
                     <p className="text-white/40 font-bold uppercase tracking-widest text-xs">{t('features.subtitle')}</p>
@@ -298,7 +310,7 @@ export default function LandingPage() {
             </section>
 
             {/* --- Technical Anatomy Section --- */}
-            <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
+            <section id="anatomy" className="py-24 px-6 md:px-12 max-w-7xl mx-auto border-t border-white/5">
                 <div className="grid lg:grid-cols-2 gap-16 items-center">
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
