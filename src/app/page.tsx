@@ -61,11 +61,11 @@ export default function LandingPage() {
 
                         {/* Desktop Links */}
                         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-                            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</button>
-                            <button onClick={() => scrollTo('problem')} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</button>
-                            <button onClick={() => scrollTo('features')} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</button>
-                            <button onClick={() => scrollTo('anatomy')} className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</button>
-                            <button onClick={() => scrollTo('about')} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</button>
+                            <a href="#home" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</a>
+                            <a href="#problem" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</a>
+                            <a href="#features" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</a>
+                            <a href="#anatomy" className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</a>
+                            <a href="#about" className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</a>
                         </div>
 
                         {/* Desktop: Right side */}
@@ -100,19 +100,20 @@ export default function LandingPage() {
                             >
                                 <div className="flex flex-col px-5 pt-3 pb-5 gap-1">
                                     {[
-                                        { label: t('nav.home'), onClick: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileMenuOpen(false); } },
-                                        { label: t('nav.problem_solution'), onClick: () => scrollTo('problem') },
-                                        { label: t('nav.features'), onClick: () => scrollTo('features') },
-                                        { label: t('nav.technical'), onClick: () => scrollTo('anatomy') },
-                                        { label: t('nav.about'), onClick: () => scrollTo('about') },
+                                        { label: t('nav.home'), href: '#home' },
+                                        { label: t('nav.problem_solution'), href: '#problem' },
+                                        { label: t('nav.features'), href: '#features' },
+                                        { label: t('nav.technical'), href: '#anatomy' },
+                                        { label: t('nav.about'), href: '#about' },
                                     ].map((item) => (
-                                        <button
+                                        <a
                                             key={item.label}
-                                            onClick={item.onClick}
-                                            className="w-full text-left py-3 px-3 rounded-xl text-[11px] font-black uppercase tracking-widest text-white/50 hover:text-primary hover:bg-white/5 transition-all"
+                                            href={item.href}
+                                            onClick={() => setMobileMenuOpen(false)}
+                                            className="block w-full text-left py-3 px-3 rounded-xl text-[11px] font-black uppercase tracking-widest text-white/50 hover:text-primary hover:bg-white/5 transition-all"
                                         >
                                             {item.label}
-                                        </button>
+                                        </a>
                                     ))}
                                     {/* Language Toggle inside mobile menu */}
                                     <div className="py-2 px-3">
