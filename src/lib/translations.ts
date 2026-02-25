@@ -119,6 +119,13 @@ export const translations = {
                 auto_correct: "Auto-correcting navigation path...",
                 toggle: "toggled",
                 mode_switch: "Operation mode switched to"
+            },
+            auth: {
+                title: "Security Check",
+                subtitle: "Please enter the security code to access the control panel",
+                placeholder: "Enter Code",
+                error: "Invalid Security Code",
+                button: "Verify"
             }
         },
         footer: {
@@ -254,6 +261,13 @@ export const translations = {
                 auto_correct: "تصحيح مسار الملاحة تلقائياً...",
                 toggle: "تبديل",
                 mode_switch: "تم تبديل وضع التشغيل إلى"
+            },
+            auth: {
+                title: "تحقق من الهوية",
+                subtitle: "يرجى إدخال رمز الأمان للوصول إلى لوحة التحكم",
+                placeholder: "أدخل الرمز",
+                error: "رمز غير صحيح",
+                button: "دخول"
             }
         },
         footer: {

@@ -100,6 +100,109 @@ export default function Dashboard() {
         addLog(`Operation mode switched to ${nextState ? 'AUTO-PILOT' : 'MANUAL'}`, nextState ? 'success' : 'info');
     };
 
+    // --- Authentication ---
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [passcode, setPasscode] = useState('');
+    const [authError, setAuthError] = useState(false);
+
+    const handleAuth = (e?: React.FormEvent) => {
+        if (e) e.preventDefault();
+        if (passcode === '8208') {
+            setIsAuthenticated(true);
+            setAuthError(false);
+        } else {
+            setAuthError(true);
+            setPasscode('');
+            // Shake effect or feedback could be added here
+        }
+    };
+
+    if (!isAuthenticated) {
+        return (
+            <main
+                dir={isRTL ? 'rtl' : 'ltr'}
+                className="h-screen w-full flex items-center justify-center bg-[#050505] p-6 relative overflow-hidden"
+            >
+                {/* Background Glows */}
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    className="w-full max-w-md z-10"
+                >
+                    <div className="glass-card p-10 border-primary/20 bg-white/[0.02] backdrop-blur-2xl relative overflow-hidden group">
+                        {/* Animated Border/Glow */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50" />
+
+                        <div className="relative z-10 flex flex-col items-center text-center">
+                            <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 border border-primary/20 shadow-[0_0_30px_rgba(59,130,246,0.1)] group-hover:border-primary/40 transition-colors">
+                                <ShieldCheck className="w-10 h-10 text-primary" />
+                            </div>
+
+                            <h1 className="text-2xl md:text-3xl font-black tracking-tighter uppercase mb-2">
+                                {t('dashboard.auth.title')}
+                            </h1>
+                            <p className="text-white/40 text-xs font-bold uppercase tracking-widest mb-10">
+                                {t('dashboard.auth.subtitle')}
+                            </p>
+
+                            <form onSubmit={handleAuth} className="w-full space-y-4">
+                                <div className="relative">
+                                    <input
+                                        type="password"
+                                        value={passcode}
+                                        onChange={(e) => {
+                                            setPasscode(e.target.value);
+                                            if (authError) setAuthError(false);
+                                        }}
+                                        placeholder={t('dashboard.auth.placeholder')}
+                                        className={cn(
+                                            "w-full bg-white/5 border px-6 py-5 rounded-xl text-center text-2xl font-black tracking-[0.5em] focus:outline-none transition-all placeholder:text-[10px] placeholder:tracking-[0.2em] placeholder:font-black placeholder:uppercase placeholder:text-white/20",
+                                            authError
+                                                ? "border-red-500/50 text-red-500 shadow-[0_0_20px_rgba(239,68,68,0.1)]"
+                                                : "border-white/10 focus:border-primary/50 text-primary"
+                                        )}
+                                        autoFocus
+                                    />
+                                    {authError && (
+                                        <motion.p
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            className="text-[10px] font-black text-red-500 uppercase tracking-widest mt-3"
+                                        >
+                                            {t('dashboard.auth.error')}
+                                        </motion.p>
+                                    )}
+                                </div>
+
+                                <button
+                                    type="submit"
+                                    className="w-full bg-primary hover:bg-primary/90 text-white font-black uppercase tracking-[0.2em] text-[11px] py-5 rounded-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all active:scale-[0.98]"
+                                >
+                                    {t('dashboard.auth.button')}
+                                </button>
+                            </form>
+
+                            <NextLink
+                                href="/"
+                                className="mt-8 text-[9px] font-black uppercase tracking-[0.3em] text-white/20 hover:text-white/40 transition-colors flex items-center gap-2"
+                            >
+                                <ArrowLeft className={cn("w-3 h-3", isRTL && "rotate-180")} />
+                                {isRTL ? 'العودة للرئيسية' : 'Back to Home'}
+                            </NextLink>
+                        </div>
+                    </div>
+
+                    <div className="mt-8 text-center">
+                        <CreatorCredit />
+                    </div>
+                </motion.div>
+            </main>
+        );
+    }
+
     return (
         <main
             dir={isRTL ? 'rtl' : 'ltr'}
