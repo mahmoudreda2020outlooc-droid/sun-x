@@ -63,7 +63,7 @@ export default function LandingPage() {
                         </div>
 
                         {/* Desktop Links */}
-                        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+                        <div className="hidden md:flex items-center gap-6 lg:gap-8 md:ml-12">
                             <a href="#home" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</a>
                             <a href="#problem" onClick={(e) => { e.preventDefault(); scrollTo('problem'); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</a>
                             <a href="#features" onClick={(e) => { e.preventDefault(); scrollTo('features'); }} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</a>
