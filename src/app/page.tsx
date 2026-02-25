@@ -19,6 +19,15 @@ export default function LandingPage() {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    const scrollTo = (id: string) => {
+        const el = document.getElementById(id);
+        if (el) {
+            const top = el.getBoundingClientRect().top + window.scrollY - 20;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+        setMobileMenuOpen(false);
+    };
+
     return (
         <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
             {/* --- Navbar --- */}
@@ -46,10 +55,10 @@ export default function LandingPage() {
                         {/* Desktop Links */}
                         <div className="hidden md:flex items-center gap-6 lg:gap-8">
                             <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors">{t('nav.home')}</button>
-                            <button onClick={() => document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</button>
-                            <button onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</button>
-                            <button onClick={() => document.getElementById('anatomy')?.scrollIntoView({ behavior: 'smooth' })} className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</button>
-                            <button onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</button>
+                            <button onClick={() => scrollTo('problem')} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.problem_solution')}</button>
+                            <button onClick={() => scrollTo('features')} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.features')}</button>
+                            <button onClick={() => scrollTo('anatomy')} className="hidden lg:block text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.technical')}</button>
+                            <button onClick={() => scrollTo('about')} className="text-[10px] font-black uppercase tracking-widest text-white/50 hover:text-primary transition-colors text-nowrap">{t('nav.about')}</button>
                         </div>
 
                         {/* Desktop: Right side */}
@@ -85,10 +94,10 @@ export default function LandingPage() {
                                 <div className="flex flex-col px-5 pt-3 pb-5 gap-1">
                                     {[
                                         { label: t('nav.home'), onClick: () => { window.scrollTo({ top: 0, behavior: 'smooth' }); setMobileMenuOpen(false); } },
-                                        { label: t('nav.problem_solution'), onClick: () => { document.getElementById('problem')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
-                                        { label: t('nav.features'), onClick: () => { document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
-                                        { label: t('nav.technical'), onClick: () => { document.getElementById('anatomy')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
-                                        { label: t('nav.about'), onClick: () => { document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); } },
+                                        { label: t('nav.problem_solution'), onClick: () => scrollTo('problem') },
+                                        { label: t('nav.features'), onClick: () => scrollTo('features') },
+                                        { label: t('nav.technical'), onClick: () => scrollTo('anatomy') },
+                                        { label: t('nav.about'), onClick: () => scrollTo('about') },
                                     ].map((item) => (
                                         <button
                                             key={item.label}
