@@ -34,7 +34,7 @@ export function CreatorCredit() {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 z-[60] bg-black/20 backdrop-blur-[2px]"
+                            className="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm"
                         />
 
                         {/* Contact Card */}
@@ -43,7 +43,7 @@ export function CreatorCredit() {
                             animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 10 }}
                             className={cn(
-                                "absolute bottom-full mb-4 z-[70] min-w-[280px] glass-card p-5 border-white/10 shadow-2xl",
+                                "absolute bottom-full mb-4 z-[70] min-w-[280px] bg-[#0a0a0a]/95 backdrop-blur-xl p-6 border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-2xl",
                                 isRTL ? "right-0" : "left-0"
                             )}
                         >
