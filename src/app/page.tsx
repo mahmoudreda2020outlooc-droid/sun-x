@@ -41,7 +41,7 @@ export default function LandingPage() {
     };
 
     return (
-        <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-clip w-full relative">
+        <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
             {/* --- Navbar --- */}
             <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
@@ -151,8 +151,10 @@ export default function LandingPage() {
 
             {/* --- Hero Section --- */}
             <section className="relative min-h-screen flex flex-col items-center justify-center p-6 overflow-hidden">
-                {/* Background Glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+                {/* Background Glow - Contained */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px]" />
+                </div>
 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
