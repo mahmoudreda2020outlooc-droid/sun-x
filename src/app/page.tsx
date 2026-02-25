@@ -29,7 +29,7 @@ export default function LandingPage() {
     };
 
     return (
-        <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
+        <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 [overflow-x:clip] w-full relative">
             {/* --- Navbar --- */}
             <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
