@@ -128,6 +128,8 @@ export default function Dashboard() {
         }
     };
 
+    // If not authenticated, we return ONLY the auth screen. 
+    // This ensures no dashboard markup is even evaluated/rendered in the virtual DOM.
     if (!isAuthenticated) {
         return (
             <main

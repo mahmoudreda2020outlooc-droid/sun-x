@@ -34,7 +34,7 @@ export const translations = {
             description: "Sun-X Robot provides an Autonomous Dry-Cleaning system that maintains peak performance without a single drop of water.",
             features: {
                 eco: { title: "Eco-Friendly", desc: "Zero water consumption using specialized brushes." },
-                ai: { title: "Smart AI", desc: "Optimized pathfinding and obstacle avoidance." }
+                system: { title: "Smart System", desc: "Optimized pathfinding and obstacle avoidance." }
             },
             badge: "Pure Efficiency"
         },
@@ -58,7 +58,7 @@ export const translations = {
                 wheels: "All-Terrain Wheels"
             },
             items: [
-                { title: "AI Navigation Unit", desc: "Top-mounted intelligence hub utilizing LiDAR for precise 3D mapping and optimized path planning on solar arrays." },
+                { title: "Intelligent Navigation Unit", desc: "Top-mounted intelligence hub utilizing LiDAR for precise 3D mapping and optimized path planning on solar arrays." },
                 { title: "All-Terrain Traction", desc: "High-torque quad motors paired with rugged, anti-slip wheels designed for 100% stability on angled solar panels." },
                 { title: "Dry Cleaning Module", desc: "Proprietary high-density electro-static brush system that removes fine dust and debris without water usage." },
                 { title: "Visual Intelligence", desc: "Dual-depth cameras and frontal proximity sensors providing real-time obstacle avoidance and health monitoring." }
@@ -69,9 +69,9 @@ export const translations = {
             title_part2: "Us",
             story_title: "Why Sun-X?",
             story_p1: "Sun-X was born from a vision to solve the most critical bottleneck in solar energy: environmental efficiency loss. In arid regions, dust accumulation can reduce solar output by up to 30% in just a few weeks.",
-            story_p2: "We designed an autonomous system that ensures maximum yield while preserving our planet's most precious resource—water. Our mission is to make solar power truly sustainable and maintenance-free through the power of AI and advanced robotics.",
+            story_p2: "We designed an autonomous system that ensures maximum yield while preserving our planet's most precious resource—water. Our mission is to make solar power truly sustainable and maintenance-free through the power of advanced robotics and intelligent control.",
             mission_title: "Our Mission",
-            mission_p: "Empowering renewable energy through robotics and AI, transforming global sustainability into a practical, automated reality for the next generation.",
+            mission_p: "Empowering renewable energy through robotics and intelligent automation, transforming global sustainability into a practical, automated reality for the next generation.",
             team_title: "Team ",
             team_subtitle: "Techno",
             team_count: "30 Visionaries / 1 Identity",
@@ -103,7 +103,7 @@ export const translations = {
                 cleaning: "CLEANING",
                 error: "ERROR",
                 auto: "AUTO",
-                ai_active: "Pathfinding AI Active",
+                ai_active: "Autonomous Navigation Active",
                 waiting: "Waiting for commands",
                 on: "ACTIVE",
                 off: "OFF"
@@ -190,7 +190,7 @@ export const translations = {
             description: "يوفر روبوت Sun-X نظام تنظيف جاف ذاتي القيادة يحافظ على ذروة الأداء دون قطرة مياه واحدة.",
             features: {
                 eco: { title: "صديق للبيئة", desc: "استهلاك صفر للمياه باستخدام فرش متخصصة." },
-                ai: { title: "ذكاء اصطناعي", desc: "تحديد المسارات المثلى وتجنب العقبات." }
+                system: { title: "نظام ذكي", desc: "تحديد المسارات المثلى وتجنب العقبات." }
             },
             badge: "كفاءة مطلقة"
         },
@@ -214,7 +214,7 @@ export const translations = {
                 wheels: "عجلات لجميع التضاريس"
             },
             items: [
-                { title: "وحدة الملاحة بالذكاء الاصطناعي", desc: "مركز ذكاء مثبت في الأعلى يستخدم LiDAR للمسح ثلاثي الأبعاد وتخطيط المسار." },
+                { title: "وحدة الملاحة المتطورة", desc: "مركز ذكاء مثبت في الأعلى يستخدم LiDAR للمسح ثلاثي الأبعاد وتخطيط المسار." },
                 { title: "جر لجميع التضاريس", desc: "محركات رباعية عالية العزم مع عجلات مانعة للانزلاق مصممة للاستقرار التام." },
                 { title: "وحدة التنظيف الجاف", desc: "نظام فرش إلكتروستاتيكي عالي الكثافة يزيل الغبار الناعم دون استخدام المياه." },
                 { title: "الذكاء البصري", desc: "كاميرات مزدوجة العمق وحساسات تقارب أمامية لتجنب العقبات." }
@@ -225,9 +225,9 @@ export const translations = {
             title_part2: "نحن",
             story_title: "لماذا Sun-X؟",
             story_p1: "وُلد مشروع Sun-X من رؤية لحل أكبر عائق في الطاقة الشمسية: فقدان الكفاءة البيئي. في المناطق الصحراوية، يقلل الغبار الإنتاج بنسبة 30%.",
-            story_p2: "صممنا نظاماً ذاتي القيادة يضمن أقصى إنتاج مع الحفاظ على أثمن موارد كوكبنا — الماء. مهمتنا هي جعل الطاقة الشمسية مستدامة حقاً.",
+            story_p2: "صممنا نظاماً ذاتي القيادة يضمن أقصى إنتاج مع الحفاظ على أثمن موارد كوكبنا — الماء. مهمتنا هي جعل الطاقة الشمسية مستدامة حقاً من خلال تقنيات التحكم المتقدمة والروبوتات.",
             mission_title: "مهمتنا",
-            mission_p: "تمكين الطاقة المتجددة من خلال الروبوتات والذكاء الاصطناعي، وتحويل الاستدامة العالمية إلى واقع عملي للأجيال القادمة.",
+            mission_p: "تمكين الطاقة المتجددة من خلال الروبوتات والأتمتة الذكية، وتحويل الاستدامة العالمية إلى واقع عملي للأجيال القادمة.",
             team_title: "فريق ",
             team_subtitle: "Techno",
             team_count: "30 مبدعاً / هوية واحدة",
@@ -259,7 +259,7 @@ export const translations = {
                 cleaning: "تنظيف",
                 error: "خطأ",
                 auto: "تلقائي",
-                ai_active: "ذكاء المسار نشط",
+                ai_active: "نظام الملاحة التلقائي نشط",
                 waiting: "في انتظار الأوامر",
                 on: "فعال",
                 off: "إيقاف"
