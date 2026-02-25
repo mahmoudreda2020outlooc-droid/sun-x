@@ -23,20 +23,23 @@ export default function LandingPage() {
     const scrollTo = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            const top = el.offsetTop - 20;
-            // Try all scroll containers for cross-browser/cross-device support
-            window.scrollTo({ top, behavior: 'smooth' });
-            document.documentElement.scrollTo({ top, behavior: 'smooth' });
-            document.body.scrollTo({ top, behavior: 'smooth' });
-            if (mainRef.current) {
-                mainRef.current.scrollTo({ top, behavior: 'smooth' });
-            }
+            const offset = 80; // Offset for navbar height/padding
+            const bodyRect = document.body.getBoundingClientRect().top;
+            const elementRect = el.getBoundingClientRect().top;
+            const elementPosition = elementRect - bodyRect;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
         }
-        setMobileMenuOpen(false);
+        // Small delay to let the scroll start before menu animation might interfere
+        setTimeout(() => setMobileMenuOpen(false), 100);
     };
 
     return (
-        <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 [overflow-x:clip] w-full relative">
+        <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 w-full relative">
             {/* --- Navbar --- */}
             <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
@@ -145,7 +148,7 @@ export default function LandingPage() {
             <div id="home" />
 
             {/* --- Hero Section --- */}
-            <section className="relative min-h-screen flex flex-col items-center justify-center p-6 [overflow:clip]">
+            <section className="relative min-h-screen flex flex-col items-center justify-center p-6">
                 {/* Background Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
 
