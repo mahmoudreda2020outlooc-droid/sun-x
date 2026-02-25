@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 import NextLink from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -18,18 +18,25 @@ export default function LandingPage() {
     const { t, isRTL } = useLanguage();
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const mainRef = useRef<HTMLElement>(null);
 
     const scrollTo = (id: string) => {
         const el = document.getElementById(id);
         if (el) {
-            const top = el.getBoundingClientRect().top + window.scrollY - 20;
+            const top = el.offsetTop - 20;
+            // Try all scroll containers for cross-browser/cross-device support
             window.scrollTo({ top, behavior: 'smooth' });
+            document.documentElement.scrollTo({ top, behavior: 'smooth' });
+            document.body.scrollTo({ top, behavior: 'smooth' });
+            if (mainRef.current) {
+                mainRef.current.scrollTo({ top, behavior: 'smooth' });
+            }
         }
         setMobileMenuOpen(false);
     };
 
     return (
-        <main className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 [overflow-x:clip] w-full relative">
+        <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 [overflow-x:clip] w-full relative">
             {/* --- Navbar --- */}
             <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-4xl">
                 <motion.div
