@@ -43,16 +43,16 @@ export default function LandingPage() {
     return (
         <main ref={mainRef} className="min-h-screen bg-[#050505] text-white selection:bg-primary/30 overflow-x-hidden w-full relative">
             {/* --- Navbar --- */}
-            <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[90%] max-w-6xl">
+            <nav className="absolute top-4 left-1/2 -translate-x-1/2 z-[100] w-[95%] max-w-7xl">
                 <motion.div
                     initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    className="glass-card border-white/10 bg-black/50 backdrop-blur-xl rounded-2xl shadow-2xl overflow-visible relative"
+                    className="glass-card border-white/10 bg-black/50 backdrop-blur-xl rounded-3xl shadow-2xl overflow-visible relative"
                 >
                     {/* Glow Line */}
-                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50 rounded-t-2xl" />
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-50 rounded-t-3xl" />
 
-                    <div className="flex items-center justify-between px-10 py-3.5">
+                    <div className="flex items-center justify-between px-12 py-3.5">
                         {/* Logo */}
                         <div className="flex items-center gap-3 shrink-0">
                             <div
