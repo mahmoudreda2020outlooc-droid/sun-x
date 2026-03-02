@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: "03",
-        name: "Mohamed Mohamed Aguel",
+        name: "Mohamed Mohamed Ibrahim",
         nameAr: "محمد محمد ابراهيم عقل",
         role: "Core Scientist",
         roleAr: "عالِم أساسي",
@@ -40,13 +40,236 @@ export const teamMembers: TeamMember[] = [
         roleAr: "عالِم أساسي",
         studentId: "2420986"
     },
-    // Placeholders for the rest of the 33 members
-    ...Array.from({ length: 29 }).map((_, i) => ({
-        id: String(i + 5).padStart(2, '0'),
-        name: "TECHNO MEMBER",
-        nameAr: "عضو تكنو",
+    {
+        id: "05",
+        name: "Ibrahim Ramadan Mohamed",
+        nameAr: "ابراهيم رمضان محمد الشلقاني",
         role: "Core Scientist",
         roleAr: "عالِم أساسي",
-        studentId: "0000000"
-    }))
+        studentId: "2420005"
+    },
+    {
+        id: "06",
+        name: "Ahmed Mohamed El-Sayed",
+        nameAr: "احمد محمد السيد عثمان زيدان",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2420071"
+    },
+    {
+        id: "07",
+        name: "Rawi Mohamed Rawi",
+        nameAr: "راوي محمد راوي محمد ابو خضره",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2420427"
+    },
+    {
+        id: "08",
+        name: "Shahd Omar Abdel-Razek",
+        nameAr: "شهد عمر عبدالرازق سلمان خرابيش",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2420608"
+    },
+    {
+        id: "09",
+        name: "Shaimaa Saeed Shehata",
+        nameAr: "شيماء سعيد شحاته عبده ابو عطيه",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2420622"
+    },
+    {
+        id: "10",
+        name: "Fatma Ramadan Sayed",
+        nameAr: "فاطمة رمضان سيد احمد امين ادم",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2420884"
+    },
+    {
+        id: "11",
+        name: "Mohamed Ragab Ramadan",
+        nameAr: "محمد رجب رمضان اسماعيل",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421020"
+    },
+    {
+        id: "12",
+        name: "Mohamed Sherif Mohamed",
+        nameAr: "محمد شريف محمد محمود اسماعيل",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421035"
+    },
+    {
+        id: "13",
+        name: "Mohamed Wael Mohamed",
+        nameAr: "محمد وائل محمد محمد البربري",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421107"
+    },
+    {
+        id: "14",
+        name: "Mahmoud Saeed Shaaban",
+        nameAr: "محمود سعيد شعبان محمد",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421137"
+    },
+    {
+        id: "15",
+        name: "Marwan Ashraf Abbas",
+        nameAr: "مروان اشرف عباس عبدالحميد جمعه",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421162"
+    },
+    {
+        id: "16",
+        name: "Mostafa Mohamed Mostafa",
+        nameAr: "مصطفى محمد مصطفى إبراهيم الخراشي",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421208"
+    },
+    {
+        id: "17",
+        name: "Moawad Ayman Moawad",
+        nameAr: "معوض أيمن معوض علي",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421223"
+    },
+    {
+        id: "18",
+        name: "Malak Mahrous Mahmoud",
+        nameAr: "ملك محروس محمود حسين",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421230"
+    },
+    {
+        id: "19",
+        name: "Malak Mohamed Abdel-Rahim",
+        nameAr: "ملك محمد عبدالرحيم عبدالعال محمد",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421233"
+    },
+    {
+        id: "20",
+        name: "Nada Ashour Abdel-Karim",
+        nameAr: "ندى عاشور عبد الكريم خميس",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421311"
+    },
+    {
+        id: "21",
+        name: "Nada Mahmoud Hamed",
+        nameAr: "ندي محمود حامد ابراهيم ابراهيم الغرباوي",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421324"
+    },
+    {
+        id: "22",
+        name: "Nesma Nagi Awad",
+        nameAr: "نسمه ناجي عوض محمود محمد",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421333"
+    },
+    {
+        id: "23",
+        name: "Nihal Abdel-Nasser",
+        nameAr: "نهال عبد الناصر محمد اسماعيل",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421339"
+    },
+    {
+        id: "24",
+        name: "Noura Abdel-Gawad",
+        nameAr: "نوره عبدالجواد احمد ضحاوي",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421353"
+    },
+    {
+        id: "25",
+        name: "Nourhan Shaaban Ibrahim",
+        nameAr: "نورهان شعبان ابراهيم محمود",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421360"
+    },
+    {
+        id: "26",
+        name: "Hagar Mamdouh Ragab",
+        nameAr: "هاجر ممدوح رجب محمد رجب",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421383"
+    },
+    {
+        id: "27",
+        name: "Haidy Mardi Othman",
+        nameAr: "هايدي مرضي عثمان حسن عمران",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421389"
+    },
+    {
+        id: "28",
+        name: "Hana Ashraf Abdel-Latif",
+        nameAr: "هنا أشرف عبداللطيف عبدالحميد",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421403"
+    },
+    {
+        id: "29",
+        name: "Hana Adel Anwar",
+        nameAr: "هنا عادل انور مصطفي",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421404"
+    },
+    {
+        id: "30",
+        name: "Wafaa Ezzat Mohamed",
+        nameAr: "وفاء عزت محمد محمد احمد سعد",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421412"
+    },
+    {
+        id: "31",
+        name: "Yara Mohamed",
+        nameAr: "يارا محمد عبد الموجود محمد",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421416"
+    },
+    {
+        id: "32",
+        name: "Youssef Essam El-Din",
+        nameAr: "يوسف عصام الدين محمد عبدالسلام الجندي",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421489"
+    },
+    {
+        id: "33",
+        name: "Youssef Mohamed",
+        nameAr: "يوسف محمد السيد محمد عامر",
+        role: "Core Scientist",
+        roleAr: "عالِم أساسي",
+        studentId: "2421502"
+    }
 ];
