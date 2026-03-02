@@ -542,7 +542,7 @@ export default function LandingPage() {
                                         <h4 className="text-lg md:text-2xl font-black uppercase tracking-tighter text-white/90 group-hover:text-white transition-colors text-center leading-none">
                                             {isRTL ? member.nameAr : member.name}
                                         </h4>
-                                        <div className="text-[10px] font-black font-mono text-white/30 group-hover:text-primary transition-colors">
+                                        <div className="mt-1 px-3 py-1 rounded-full bg-white/[0.03] border border-white/5 text-xs font-black font-mono text-primary/80 group-hover:text-primary group-hover:bg-primary/10 group-hover:border-primary/30 transition-all shadow-[0_0_15px_rgba(59,130,246,0.1)]">
                                             ID: {member.studentId}
                                         </div>
                                     </div>
