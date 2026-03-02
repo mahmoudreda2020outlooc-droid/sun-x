@@ -13,6 +13,7 @@ import { cn } from '@/lib/utils';
 import { useLanguage } from '@/components/providers/LanguageContext';
 import { LanguageToggle } from '@/components/ui/LanguageToggle';
 import { CreatorCredit } from '@/components/dashboard/CreatorCredit';
+import { teamMembers } from '@/data/team';
 
 export default function LandingPage() {
     const { t, isRTL } = useLanguage();
@@ -498,9 +499,9 @@ export default function LandingPage() {
 
                         {/* Bento Grid Layout - Clean, Large, and Fills Space */}
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
-                            {Array.from({ length: 33 }).map((_, i) => (
+                            {teamMembers.map((member, i) => (
                                 <motion.div
-                                    key={i}
+                                    key={member.id}
                                     initial={{ opacity: 0, y: 20 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
@@ -528,7 +529,7 @@ export default function LandingPage() {
 
                                     {/* Large ID Indicator */}
                                     <div className="absolute top-6 left-6 text-sm font-black font-mono text-white/10 group-hover:text-primary transition-colors">
-                                        [{String(i + 1).padStart(2, '0')}]
+                                        [{member.id}]
                                     </div>
 
                                     {/* Card Content */}
@@ -539,14 +540,17 @@ export default function LandingPage() {
                                             </svg>
                                         </div>
                                         <h4 className="text-lg md:text-2xl font-black uppercase tracking-tighter text-white/90 group-hover:text-white transition-colors text-center leading-none">
-                                            {t('about.team_subtitle').toUpperCase()}<br />{isRTL ? 'عضو' : 'MEMBER'}
+                                            {isRTL ? member.nameAr : member.name}
                                         </h4>
+                                        <div className="text-[10px] font-black font-mono text-white/30 group-hover:text-primary transition-colors">
+                                            ID: {member.studentId}
+                                        </div>
                                     </div>
 
                                     {/* Bottom Info Bar */}
                                     <div className="w-full flex items-center justify-between mt-6 pt-4 border-t border-white/5 group-hover:border-primary/20 transition-colors relative z-10">
                                         <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] md:tracking-[0.3em] text-white/30 group-hover:text-white/60">
-                                            {t('about.member_role')}
+                                            {isRTL ? member.roleAr : member.role}
                                         </span>
                                         <div className="flex gap-1 items-center">
                                             <div className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-primary/20 group-hover:bg-primary group-hover:animate-pulse transition-all" />
