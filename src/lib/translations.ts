@@ -74,10 +74,10 @@ export const translations = {
             mission_p: "Empowering renewable energy through robotics and intelligent automation, transforming global sustainability into a practical, automated reality for the next generation.",
             team_title: "Team ",
             team_subtitle: "Techno",
-            team_count: "30 Visionaries / 1 Identity",
+            team_count: "33 Visionaries / 1 Identity",
             member_role: "Core Scientist",
             member_status: "ACTIVE",
-            roster_status: "Full Roster (30/30) Synchronized"
+            roster_status: "Full Roster (33/33) Synchronized"
         },
         dashboard: {
             link_stable: "Link: Stable",
@@ -230,10 +230,10 @@ export const translations = {
             mission_p: "تمكين الطاقة المتجددة من خلال الروبوتات والأتمتة الذكية، وتحويل الاستدامة العالمية إلى واقع عملي للأجيال القادمة.",
             team_title: "فريق ",
             team_subtitle: "Techno",
-            team_count: "30 مبدعاً / هوية واحدة",
+            team_count: "33 مبدعاً / هوية واحدة",
             member_role: "عالِم أساسي",
             member_status: "نشط",
-            roster_status: "تمت مزامنة القائمة الكاملة (30/30)"
+            roster_status: "تمت مزامنة القائمة الكاملة (33/33)"
         },
         dashboard: {
             link_stable: "الاتصال: مستقر",
