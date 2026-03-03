@@ -82,8 +82,8 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: "10",
-        name: "Fatma Ramadan Sayed",
-        nameAr: "فاطمة رمضان سيد احمد امين ادم",
+        name: "Fatma Ramadan Sayed Ahmed",
+        nameAr: "فاطمه رمضان سيد احمد",
         role: "Member",
         roleAr: "عضو",
         studentId: "2420884"
@@ -186,8 +186,8 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: "23",
-        name: "Nihal Abdel-Nasser",
-        nameAr: "نهال عبد الناصر محمد اسماعيل",
+        name: "NEHAL ABD-ELNASSER",
+        nameAr: "نهال عبد الناصر",
         role: "Member",
         roleAr: "عضو",
         studentId: "2421339"
